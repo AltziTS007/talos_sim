@@ -1,0 +1,15 @@
+global_costmap:
+  global_frame: map
+  robot_base_frame: base_footprint
+  update_frequency: 5.0
+  publish_frequency: 4.0
+  width: 15
+  height: 15
+  rolling_window: true
+  resolution: 0.07
+  track_unknown_space: true 
+  plugins: 
+    - {name: obstacle_layer,      type: "costmap_2d::ObstacleLayer"}
+    - {name: inflation,        type: "costmap_2d::InflationLayer"}
+    - {name: static_layer,       type: "costmap_2d::StaticLayer"}
+

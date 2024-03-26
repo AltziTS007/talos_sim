@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<robot name="talos" xmlns:xacro="http://www.ros.org/wiki/xacro"> 
+
+  <xacro:macro name="talos_gazebo">
+    <gazebo>
+      <plugin name="object_controller" filename="libgazebo_ros_planar_move.so">
+        <commandTopic>cmd_vel</commandTopic>
+        <odometryTopic>odom</odometryTopic>
+        <odometryFrame>odom</odometryFrame>
+        <odometryRate>20.0</odometryRate>
+        <robotBaseFrame>base_link</robotBaseFrame>
+      </plugin>
+    </gazebo>
+
+    <gazebo reference="${name}_footprint">
+      <gravity>true</gravity>
+      <selfCollide>true</selfCollide>
+    </gazebo>
+</xacro:macro>
+
+</robot>

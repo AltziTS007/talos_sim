@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<launch>
+
+
+
+    <node pkg="amcl" type="amcl" name="amcl">
+        <!-- Publish scans from best pose at a max of 10 Hz -->
+        <remap from="scan" to="scan_multi"/>
+        <param name="odom_model_type" value="omni-corrected"/>
+        <param name="base_frame_id" value="base_footprint"/>
+        <param name="gui_publish_rate" value="10.0"/><!--(double,default:-1.0Hz)Maximum rate (Hz) at which scans and paths are published for visualization, -1.0 to disable.-->
+        <param name="laser_max_beams" value="30"/><!--(int,default:30)How many evenly-spaced beams in each scan to be used when updating the filter.-->
+        <param name="min_particles" value="500"/> <!--(int,default:100)Minimum allowed number of particles.-->
+        <param name="max_particles" value="5000"/> <!--(int,default:5000)Maximum allowed number of particles.-->
+
+        <param name="kld_err" value="0.05"/> <!--(double,default:0.01)Maximum error between the true distribution and the estimated distribution.-->
+        <param name="kld_z" value="0.99"/><!--(double,default:0.99)Upper standard normal quantile for (1 - p), where p is the probability that the error on the estimated distrubition will be less than kld_err.-->
+
+        <param name="odom_alpha1" value="0.2"/> <!--(double,default:0.2)Specifies the expected noise in odometry's rotation estimate from the rotational component of the robot's motion.-->
+        <param name="odom_alpha2" value="0.2"/><!--(double,default:0.2)Specifies the expected noise in odometry's rotation estimate from translational component of the robot's motion.-->
+
+        <!-- translation std dev, m -->
+        <param name="odom_alpha3" value="0.8"/><!--(double,default:0.2)Specifies the expected noise in odometry's translation estimate from the translational component of the robot's motion.-->
+        <param name="odom_alpha4" value="0.2"/><!--(double,default:0.2)Specifies the expected noise in odometry's translation estimate from the rotational component of the robot's motion.-->
+        <param name="odom_alpha5" value="0.1"/><!--(double,default:0.2)Translation-related noise parameter (only used if model is "omni").-->
+        <param name="laser_z_hit" value="0.5"/><!--(double,default: 0.95)Mixture weight for the z_hit part of the model.-->
+        <param name="laser_z_short" value="0.05"/><!--(double,default:0.1)Mixture weight for the z_short part of the model.-->
+        <param name="laser_z_max" value="0.05"/><!--(double,default:0.05)Mixture weight for the z_max part of the model.-->
+        <param name="laser_z_rand" value="0.5"/><!--(double,default:0.05)Mixture weight for the z_rand part of the model.-->
+        <param name="laser_sigma_hit" value="0.2"/><!--(double,default:0.2 meters)Standard deviation for Gaussian model used in z_hit part of the model.-->
+        <param name="laser_lambda_short" value="0.1"/><!--(double,default:0.1)Exponential decay parameter for z_short part of model.-->
+        <param name="laser_model_type" value="likelihood_field"/>
+        <!--     <param name="laser_model_type" value="beam"/> -->
+        <param name="laser_likelihood_max_dist" value="2.0"/><!--(double, default: 2.0 meters)
+Maximum distance to do obstacle inflation on map, for use in likelihood_field model.-->
+
+        <param name="update_min_d" value="0.01"/><!--(double,default:0.2 meters)Translational movement required before performing a filter update.-->
+        <param name="update_min_a" value="0.1"/><!-- (double,default:π/6.0 radians)Rotational movement required before performing a filter update.-->
+
+        <param name="odom_frame_id" value="odom"/>
+        <param name="resample_interval" value="1"/><!--(int,default:2)Number of filter updates required before resampling.-->
+
+        <param name="transform_tolerance" value="0.1"/><!--(double,default:0.1 seconds)Time with which to post-date the transform that is published, to indicate that this transform is valid into the future.-->
+
+        <param name="recovery_alpha_slow" value="0.0"/><!--(double,default:0.0(disabled))Exponential decay rate for the slow average weight filter, used in deciding when to recover by adding random poses. A good value might be 0.001.-->
+        <param name="recovery_alpha_fast" value="0.0"/><!--(double,default:0.0(disabled))Exponential decay rate for the fast average weight filter, used in deciding when to recover by adding random poses. A good value might be 0.1.-->
+
+
+    </node>
+
+
+</launch>

@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<launch>
+
+   <master auto="start"/>
+ <!-- Run rviz -->
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find talos_navigation)/config_rviz/amcl.rviz"/>
+
+ <!-- Run the map server --> 
+    <node name="map_server" pkg="map_server" type="map_server" args="$(find talos_navigation)/maps/aithousa.yaml "/>
+
+ <!--- Run AMCL --> 
+    <include file="$(find talos_navigation)/examples/amcl_omni.launch" />
+
+ <!-- Run dwa move base -->
+    <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+        <!-- global planner -->
+        <param name="base_global_planner" value="global_planner/GlobalPlanner" />
+        <rosparam file="$(find talos_navigation)/config/dwa/global_planner_params.yaml" command="load" />
+
+        <!-- local planner -->   
+        <param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS"/>      
+        <rosparam file="$(find talos_navigation)/config/dwa/dwa_local_planner_params.yaml" command="load"/>
+        <remap from="odom" to="/odometry/filtered"/>
+        
+        <!-- params for move_base -->
+        <param name="planner_frequency" value="0.5" />
+        <param name="controller_frequency" value="10.0" />
+        <param name="controller_patience" value="3.0" />
+        <param name="oscillation_timeout" value="5.0" />
+        <param name="oscillation_distance" value="0.3" />
+        <param name="clearing_rotation_allowed" value="false" />
+        <remap from="cmd_vel" to="/gaz_controller/cmd_vel"/>
+        <remap from="odom" to="odom"/>
+        <remap from="scan" to="scan_multi"/>
+        <param name="move_base/DWAPlannerROS/yaw_goal_tolerance" value="0.1"/>
+        <param name="move_base/DWAPlannerROS/xy_goal_tolerance" value="0.2"/>
+        <!-- params for costmap layers --> 
+        <rosparam file="$(find talos_navigation)/config/dwa/local_costmap_params.yaml" command="load"/>
+        <rosparam file="$(find talos_navigation)/config/dwa/global_costmap_params.yaml" command="load"/>
+        
+    </node>
+
+</launch>

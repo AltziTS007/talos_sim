@@ -1,0 +1,18 @@
+#For full documentation of the parameters in this file, and a list of all the
+#parameters available for GlobalPlanner, please see
+#http://www.ros.org/wiki/global_planner
+GlobalPlanner:
+    allow_unknown: true
+    default_tolerance: 0.5 # meter
+    visualize_potential: false
+    use_dijkstra: true
+    use_quadratic: false
+    use_grid_path: true
+    old_navfn_behavior: true
+    
+    cost_factor: 0.55
+    neutral_cost: 66
+    lethal_cost: 253
+
+      
+

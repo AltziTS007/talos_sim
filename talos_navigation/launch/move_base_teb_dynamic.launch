@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<launch>
+
+   <master auto="start"/>
+ <!-- Run rviz -->
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find talos_navigation)/config_rviz/amcl.rviz"/>
+
+ <!-- Run the map server --> 
+    <node name="map_server" pkg="map_server" type="map_server" args="$(find talos_navigation)/maps/final_map.yaml "/>
+
+ <!--- Run AMCL --> 
+    <include file="$(find talos_navigation)/examples/amcl_omni.launch" />
+
+
+   <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    <rosparam file="$(find talos_navigation)/config/DYNAMIC/costmap_common_params_d.yaml" command="load" ns="global_costmap" /> 
+    <rosparam file="$(find talos_navigation)/config/DYNAMIC/costmap_common_params_d.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find talos_navigation)/config/DYNAMIC/local_costmap_params_d.yaml" command="load" />
+    <rosparam file="$(find talos_navigation)/config/DYNAMIC/global_costmap_params_d.yaml" command="load" /> 
+    <!--rosparam file="$(find talos_navigation)/config/trajectory_planner.yaml" command="load" />-->
+
+    <param name="base_local_planner" value="teb_local_planner/TebLocalPlannerROS"/>      
+    <rosparam file="$(find talos_navigation)/config/teb/teb_local_planner_params_d.yaml" command="load"/>
+
+    <!-- LOAD COSTMAP_CONVERTER PARAMETERS HERE -->
+    <rosparam file="$(find talos_navigation)/config/teb/costmap_converter_params_d.yaml" command="load" />
+
+    <remap from="odom" to="/odometry/filtered"/>
+
+    <remap from="cmd_vel" to="/gaz_controller/cmd_vel"/>
+    <remap from="odom" to="odom"/>
+    <remap from="scan" to="scan_multi"/>
+    <!--param name="move_base/DWAPlannerROS/yaw_goal_tolerance" value="0.1"/>
+    <param name="move_base/DWAPlannerROS/xy_goal_tolerance" value="0.2"/-->
+    <param name="controller_frequency" value="12.0"/>
+    <param name="recovery_behaviour_enabled" value="false"/>
+    <param name="clearing_rotation_allowed" value="false"/>
+   </node>
+
+</launch> 
