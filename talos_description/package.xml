@@ -57,15 +57,24 @@
   <build_export_depend>rospy</build_export_depend>
   <build_export_depend>urdf</build_export_depend>
   <build_export_depend>xacro</build_export_depend>
+  <build_export_depend>gazebo_ros</build_export_depend>
   <exec_depend>roscpp</exec_depend>
   <exec_depend>rospy</exec_depend>
   <exec_depend>urdf</exec_depend>
   <exec_depend>xacro</exec_depend>
+  <exec_depend>gazebo_ros</exec_depend>
+  <exec_depend>gazebo</exec_depend>
+  <exec_depend>gazebo_plugins</exec_depend>
 
 
   <!-- The export tag contains other, unspecified, tags -->
-  <export>
-    <!-- Other tools can request additional information be placed here -->
-
-  </export>
+<export>
+    <!-- gazebo_ros_paths_plugin automatically adds these to
+        GAZEBO_PLUGIN_PATH and GAZEBO_MODEL_PATH when you do this export inside
+        the package.xml file. You can than use URIs of type model://my_package/stuff. -->
+    <gazebo_ros                                                                 
+        gazebo_plugin_path="${prefix}/lib"
+	gazebo_media_path="${prefix}"
+        gazebo_model_path="${prefix}/meshes/" /> 
+</export>
 </package>
