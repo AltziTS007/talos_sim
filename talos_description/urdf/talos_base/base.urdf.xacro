@@ -2,62 +2,47 @@
 <robot name="talos" xmlns:xacro="http://www.ros.org/wiki/xacro"> 
 
   <!-- sensors -->
-  <xacro:include filename="$(find talos_description)/urdf/sensors/sick_tim_561.urdf.xacro"/>
+  <xacro:include filename="$(find talos_description)/urdf/sensors/sick_tim561_laser.urdf.xacro"/>
 
   <xacro:include filename="$(find talos_description)/urdf/talos_base/base.gazebo.xacro" />
   <xacro:include filename="$(find talos_description)/urdf/talos_base/base.transmission.xacro" />
 
+  <xacro:property name="M_PI" value="3.141592" />
+
   <!-- simplified box collision geometry for base -->
-  <property name="base_size_x" value="0.570" />
-  <property name="base_size_y" value="0.360" />
-  <property name="base_size_z" value="0.100" />
-  <property name="base_mass" value="22.0" />
+  <xacro:property name="base_size_x" value="0.53" />
+  <xacro:property name="base_size_y" value="0.61" />
+  <xacro:property name="base_size_z" value="0.13" />
+  <xacro:property name="base_mass" value="15.0" />
 
-  <property name="caster_offset_x" value="0.228"  />  
-  <property name="caster_offset_y" value="0.158"  />  
-  <property name="caster_offset_z" value="-0.034" />
-  <property name="caster_mass" value="0.1" />
+  <xacro:property name="caster_offset_x" value="0.228"  />  
+  <xacro:property name="caster_offset_y" value="0.158"  />  
+  <xacro:property name="caster_offset_z" value="-0.034" />
+  <xacro:property name="caster_mass" value="0.1" />
 
-  <property name="wheel_offset_x" value="0.0"  />  
-  <property name="wheel_offset_y" value="0.0"  />  
-  <property name="wheel_offset_z" value="0.0" />
-  <property name="wheel_mass" value="0.4" />
+  <xacro:property name="wheel_offset_x" value="0.0"  />  
+  <xacro:property name="wheel_offset_y" value="0.0"  />  
+  <xacro:property name="wheel_offset_z" value="0.0" />
+  <xacro:property name="wheel_mass" value="0.4" />
 
-  <property name="wheel_radius" value="0.05" />
-  <property name="wheel_length" value="0.005" />
+  <xacro:property name="wheel_radius" value="0.05" />
+  <xacro:property name="wheel_length" value="0.005" />
 
-  <property name="caster_joint_damping" value="1.0" />
-  <property name="caster_joint_friction" value="1.0" />
-  <property name="caster_joint_effort" value="30" />
-  <property name="caster_joint_velocity" value="10" />
-  <property name="caster_joint_safety_k_velocity" value="10.0" />
+  <xacro:property name="caster_joint_damping" value="1.0" />
+  <xacro:property name="caster_joint_friction" value="1.0" />
+  <xacro:property name="caster_joint_effort" value="30" />
+  <xacro:property name="caster_joint_velocity" value="10" />
+  <xacro:property name="caster_joint_safety_k_velocity" value="10.0" />
 
-  <property name="wheel_joint_damping" value="1.0" />
-  <property name="wheel_joint_friction" value="1.0" />
-  <property name="wheel_joint_effort" value="30" />
-  <property name="wheel_joint_velocity" value="10" />
-  <property name="wheel_joint_safety_k_velocity" value="10.0" />
+  <xacro:property name="wheel_joint_damping" value="1.0" />
+  <xacro:property name="wheel_joint_friction" value="1.0" />
+  <xacro:property name="wheel_joint_effort" value="30" />
+  <xacro:property name="wheel_joint_velocity" value="10" />
+  <xacro:property name="wheel_joint_safety_k_velocity" value="10.0" />
 
   <xacro:macro name="talos_base" params="name">
 
     <link name="${name}_footprint">
-      <inertial>
-        <mass value="0.0001" />
-        <origin xyz="0 0 ${-base_size_z / 2.0}" rpy="0 0 0" />
-        <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" />
-      </inertial>
-      <visual>
-        <origin xyz="0 0 0" rpy="0 0 0" />
-        <geometry>
-          <box size="0.001 0.001 0.001" />
-        </geometry>
-      </visual>
-      <collision>
-        <origin xyz="0 0 ${-base_size_z / 2.0}" rpy="0 0 0" />
-        <geometry>
-          <box size="0.001 0.001 0.001" />
-        </geometry>
-      </collision>
     </link>
 
     <joint name="${name}_footprint_joint" type="fixed">
@@ -75,21 +60,21 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />  
         <geometry>
-          <mesh filename="package://talos_description/meshes/talos_base/base.dae"/>
+          <mesh filename="package://talos_description/meshes/talos_base/talos_base.stl"/>
         </geometry> 
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
           <!--<box size="${base_size_x} ${base_size_y} ${base_size_z}" />-->
-          <mesh filename="package://talos_description/meshes/talos_base/base_convex.dae"/>
+          <mesh filename="package://talos_description/meshes/talos_base/talos_base.stl"/>
         </geometry>
       </collision>
     </link>		
 
     <!-- front left omni-wheel -->		
     <joint name="caster_joint_fl" type="fixed">
-      <origin xyz="${caster_offset_x} ${caster_offset_y} ${caster_offset_z}" rpy="0 0 0" />
+      <origin xyz="0.118 0.217 0.038" rpy="0 0 -2.0944" />
       <axis xyz="0 0 1" />
       <parent link="${name}_link"/>
       <child link="caster_link_fl" />
@@ -122,7 +107,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://talos_description/meshes/talos_base/front-left_wheel.dae" />
+          <mesh filename="package://talos_description/meshes/talos_base/omniwheel.stl" />
         </geometry>
       </visual>
       <collision>
@@ -136,7 +121,7 @@
 
     <!-- front right omni-wheel -->
     <joint name="caster_joint_fr" type="fixed">
-      <origin xyz="${caster_offset_x} ${-caster_offset_y} ${caster_offset_z}" rpy="0 0 0" />
+      <origin xyz="0.118 -0.211 0.038" rpy="0 ${M_PI} -1.0472" />
       <axis xyz="0 0 1" />
       <parent link="${name}_link"/>
       <child link="caster_link_fr" />
@@ -169,7 +154,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://talos_description/meshes/talos_base/front-right_wheel.dae" />
+          <mesh filename="package://talos_description/meshes/talos_base/omniwheel.stl" />
         </geometry>
       </visual>
       <collision>
@@ -182,7 +167,7 @@
 
     <!-- back omni-wheel -->
     <joint name="caster_joint_b" type="fixed">
-      <origin xyz="${-caster_offset_x} ${caster_offset_y} ${caster_offset_z}" rpy="0 0 0" />
+      <origin xyz="-0.253 0 0.038" rpy="0 0 0" />
       <axis xyz="0 0 1" />
       <parent link="${name}_link"/>
       <child link="caster_link_b" />
@@ -216,7 +201,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://talos_description/meshes/talos_base/back-left_wheel.dae" />
+          <mesh filename="package://talos_description/meshes/talos_base/omniwheel.stl" />
         </geometry>
       </visual>
       <collision>
@@ -229,14 +214,14 @@
 
     <!-- base laser front left-->
 
-    <xacro:sick_tim561_laser name="${name}_laser_front_left" parent="${name}" ros_topic="scan_front_left" update_rate="15" min_angle="-1.00" max_angle="2.357" >
-      <origin xyz="0.3 0 -0.03" rpy="${M_PI} ${M_PI} ${M_PI}" />
+    <xacro:sick_tim561_laser name="${name}_laser_left" parent="${name}" ros_topic="scan_left" update_rate="15" min_angle="-1.00" max_angle="2.357" >
+      <origin xyz="0.153 0.279 0.07" rpy="0 0 1.0821" />
     </xacro:sick_tim561_laser>
 
     <!-- base laser front right-->
 
-    <xacro:sick_tim561_laser name="${name}_laser_front_right" parent="${name}" ros_topic="scan_front_right" update_rate="15" min_angle="-2.357" max_angle="1.00" >
-      <origin xyz="0.3 0 -0.03" rpy="${M_PI} ${M_PI} ${M_PI}" />
+    <xacro:sick_tim561_laser name="${name}_laser_right" parent="${name}" ros_topic="scan_right" update_rate="15" min_angle="-2.357" max_angle="1.00" >
+      <origin xyz="0.153 -0.279 0.07" rpy="0 0 -1.0123" />
     </xacro:sick_tim561_laser>
 
     <!-- extensions -->

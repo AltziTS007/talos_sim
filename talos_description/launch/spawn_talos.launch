@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+  <rosparam
+    file="$(find talos_description)/config/talos_joints.yaml"
+    command="load"
+  />
+
+  <node
+    name="controller_spawner"
+    pkg="controller_manager"
+    type="spawner"
+    respawn="false"
+    output="screen"
+    args="joint_state_controller"
+    ns="/talos"
+  />
+  
+  <param name="robot_description" command="$(find xacro)/xacro '$(find talos_description)/urdf/robots/talos.urdf.xacro'"/>
+
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
+      <remap from="joint_state" to="/simple_model/joint_states" />
+  </node>
+
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+      <param name="use_gui" value="false"/>
+  </node>
+
+  <node args="-param robot_description -urdf -model talos" name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" />
+
+</launch>

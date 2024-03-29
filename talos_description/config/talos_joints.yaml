@@ -1,0 +1,26 @@
+talos:
+
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+
+  left_joint_velocity_controller:
+    type: velocity_controllers/JointVelocityController
+    joint: wheel_joint_fl
+    #pid: {p: 0.000001, i: 0.0, d: 0.0}
+
+
+  back_joint_velocity_controller:
+    type: velocity_controllers/JointVelocityController
+    joint: wheel_joint_b
+    #pid: {p: 0.000001, i: 0.0, d: 0.0}
+
+  right_joint_velocity_controller:
+    type: velocity_controllers/JointVelocityController
+    joint: wheel_joint_fr
+    #pid: {p: 0.000001, i: 0.0, d: 0.0}
+
+  gazebo_ros_control/pid_gains:
+    wheel_joint_fl: {p: 0.000001, i: 0.0, d: 0.0}
+    wheel_joint_b: {p: 0.000001, i: 0.0, d: 0.0}
+    wheel_joint_fr: {p: 0.000001, i: 0.0, d: 0.0}

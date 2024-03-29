@@ -7,25 +7,22 @@
   
   <!-- The following included files set up definitions of parts of the robot body -->
   <!-- misc common stuff? -->
-  <include filename="$(find talos_description)/urdf/common.xacro" />
+  <!--include filename="$(find talos_description)/urdf/common.xacro" /-->
 
-  <!-- youbot base -->
+  <!-- talos base -->
   <include filename="$(find talos_description)/urdf/talos_base/base.urdf.xacro" />
 
-  <!-- youbot arm -->
-  <include filename="$(find talos_description)/urdf/talos_arm/arm.urdf.xacro"/>
-
-  <!-- youbot gripper -->
-  <include filename="$(find talos_description)/urdf/youbot_gripper/gripper.urdf.xacro" />
+  <!-- talos arm -->
+  <!--include filename="$(find talos_description)/urdf/talos_arm/arm.urdf.xacro"/-->
  
   <!-- generic simulator_gazebo plugins for starting mechanism control, ros time, ros battery -->
-  <include filename="$(find talos_description)/gazebo/gazebo.urdf.xacro" />
+  <!--include filename="$(find talos_description)/gazebo/gazebo.urdf.xacro" /-->
   
   <!-- materials for visualization -->
-  <include filename="$(find talos_description)/urdf/materials.urdf.xacro" />
+  <!--include filename="$(find talos_description)/urdf/materials.urdf.xacro" /-->
 						     
 
-  <!-- Now we can start using the macros included above to define the actual youbot -->
+  <!-- Now we can start using the macros included above to define the actual talos -->
 
   <!-- The first use of a macro.  This one was defined in base.urdf.xacro above.
        A macro like this will expand to a set of link and joint definitions, and to additional
@@ -36,16 +33,9 @@
        is the world frame). For more, see http://www.ros.org/wiki/xacro -->
 
 <!-- foot for arm-->
-  <xacro:youbot_base name="base"/>
-  <xacro:youbot_plate name="plate" parent="base_link">
-    <origin xyz="-0.159 0 0.046" rpy="0 0 0" />
-  </xacro:youbot_plate>
-  <xacro:youbot_arm name="arm" parent="base_link">
+  <xacro:talos_base name="base"/>
+  <!--xacro:talos_arm name="arm" parent="base_link">
     <origin xyz="0.143 0 0.046" rpy="0 0 0" />
-  </xacro:youbot_arm>
-  <xacro:youbot_gripper name="gripper" parent="arm_link_5">
-    <origin xyz="0 0 0" rpy="0 0 0" />
-  </xacro:youbot_gripper>
-
+  </xacro:talos_arm-->
   
 </robot>

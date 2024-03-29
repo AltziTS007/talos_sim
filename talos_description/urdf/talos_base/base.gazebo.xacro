@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <robot name="talos" xmlns:xacro="http://www.ros.org/wiki/xacro"> 
 
-  <xacro:macro name="talos_gazebo">
+  <xacro:macro name="talos_base_gazebo">
     <gazebo>
       <plugin name="object_controller" filename="libgazebo_ros_planar_move.so">
         <commandTopic>cmd_vel</commandTopic>
@@ -16,6 +16,34 @@
       <gravity>true</gravity>
       <selfCollide>true</selfCollide>
     </gazebo>
+
+    <!-- front left wheel -->
+    <gazebo reference="wheel_link_fl">
+      <kp>1000000</kp>
+      <kd>100</kd>
+    </gazebo>
+    
+    <gazebo reference="caster_link_fl">
+    </gazebo>
+
+    <!-- front right wheel -->
+    <gazebo reference="wheel_link_fr">
+      <kp>1000000</kp>
+      <kd>100</kd>
+    </gazebo>
+    
+    <gazebo reference="caster_link_fr">   
+    </gazebo>
+
+    <!-- back left wheel -->
+    <gazebo reference="wheel_link_b">
+      <kp>1000000</kp>
+      <kd>100</kd>
+    </gazebo>
+    
+    <gazebo reference="caster_link_b">
+    </gazebo>
+
 </xacro:macro>
 
 </robot>
