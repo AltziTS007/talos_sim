@@ -29,7 +29,7 @@
     type="spawner"
     respawn="false"
     output="screen"
-    args="joint_state_controller"
+    args="joint_state_controller joint_trajectory_controller hand_controller"
     ns="/talos"
   />
   
