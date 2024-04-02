@@ -35,7 +35,7 @@
 <!-- foot for arm-->
   <xacro:talos_base name="base"/>
   <xacro:talos_arm name="arm" parent="base_link">
-    <origin xyz="0.143 0 0.1" rpy="0 0 0" />
+    <origin xyz="0.147 0 0.147" rpy="0 0 0" />
   </xacro:talos_arm>
   
 </robot>
