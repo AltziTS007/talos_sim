@@ -6,7 +6,7 @@
 
 	<include filename="$(find talos_description)/urdf/talos_arm/arm.gazebo.xacro" />
 	<include filename="$(find talos_description)/urdf/talos_arm/arm.transmission.xacro" />
-        <include filename="$(find talos_description)/urdf/talos_arm/limits.urdf.xacro" />
+    <include filename="$(find talos_description)/urdf/talos_arm/limits.urdf.xacro" />
 
 
 	<xacro:macro name="talos_arm" params="parent name *origin">

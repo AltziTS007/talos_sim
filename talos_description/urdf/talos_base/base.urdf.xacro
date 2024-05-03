@@ -1,5 +1,8 @@
 <?xml version="1.0"?>
-<robot name="talos" xmlns:xacro="http://www.ros.org/wiki/xacro"> 
+<robot  xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+        xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+        xmlns:xacro="http://ros.org/wiki/xacro">
 
   <!-- sensors -->
   <xacro:include filename="$(find talos_description)/urdf/sensors/sick_tim561_laser.urdf.xacro"/>
@@ -27,10 +30,9 @@
   <xacro:property name="wheel_joint_velocity" value="10" />
   <xacro:property name="wheel_joint_safety_k_velocity" value="10.0" />
 
-  <xacro:macro name="talos_base" params="name">
+  <xacro:macro name = "talos_base" params="name">
 
-    <link name="${name}_footprint">
-    </link>
+    <link name="${name}_footprint"/>
 
     <joint name="${name}_footprint_joint" type="fixed">
       <origin xyz="0 0 0" rpy="0 0 0" />
@@ -201,14 +203,14 @@
 
     <!-- base laser front left-->
 
-    <xacro:sick_tim561_laser name="${name}_laser_left" parent="${name}" ros_topic="scan_left" update_rate="15" min_angle="-1.00" max_angle="2.357" >
-      <origin xyz="0.153 0.279 0.07" rpy="0 0 1.0821" />
+    <xacro:sick_tim561_laser name="${name}_laser_left" parent="${name}" ros_topic="scan_left" update_rate="15" min_angle="-2.2" max_angle="2.5" >
+      <origin xyz="0.153 0.279 0.03" rpy="0 0 1.0821" />
     </xacro:sick_tim561_laser>
 
     <!-- base laser front right-->
 
-    <xacro:sick_tim561_laser name="${name}_laser_right" parent="${name}" ros_topic="scan_right" update_rate="15" min_angle="-2.357" max_angle="1.00" >
-      <origin xyz="0.153 -0.279 0.07" rpy="0 0 -1.0123" />
+    <xacro:sick_tim561_laser name="${name}_laser_right" parent="${name}" ros_topic="scan_right" update_rate="15" min_angle="-2.5" max_angle="2.2" >
+      <origin xyz="0.153 -0.27 0.03" rpy="0 0 -1.0821" />
     </xacro:sick_tim561_laser>
 
     <!-- extensions -->
@@ -217,5 +219,6 @@
 
 
   </xacro:macro>
+
 
 </robot>
