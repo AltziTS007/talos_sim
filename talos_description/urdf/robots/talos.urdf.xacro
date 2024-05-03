@@ -33,7 +33,7 @@
        is the world frame). For more, see http://www.ros.org/wiki/xacro -->
 
 <!-- foot for arm-->
-  <xacro:talos_base name="base"/>
+  <xacro:macro name = "talos_base" params ="base"/>
   <!--xacro:talos_arm name="arm" parent="base_link">
     <origin xyz="0.143 0 0.046" rpy="0 0 0" />
   </xacro:talos_arm-->

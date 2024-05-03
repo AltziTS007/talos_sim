@@ -4,7 +4,7 @@
 
   <xacro:include filename="$(find talos_description)/urdf/sensors/sick_tim561_laser.gazebo.xacro" />
 
-  <xacro:macro name="sick_tim561_laser" params="name parent *origin ros_topic update_rate min_angle max_angle">
+  <xacro:macro name="sick_tim561_laser" params="laser parent *origin ros_topic update_rate min_angle max_angle">
     <joint name="${name}_sick_tim561_laser_joint" type="fixed">
       <axis xyz="0 1 0" />
       <insert_block name="origin" />
@@ -34,6 +34,6 @@
    </collision>
  </link>
  <!-- gazebo extensions -->
- <xacro:sick_tim561_laser_gazebo name="${name}" ros_topic="${ros_topic}" update_rate="${update_rate}" min_angle="${min_angle}" max_angle="${max_angle}" />
+ <xacro:sick_tim561_laser_gazebo laser_name="${name}" ros_topic="${ros_topic}" update_rate="${update_rate}" min_angle="${min_angle}" max_angle="${max_angle}" />
 </xacro:macro>
 </robot>
