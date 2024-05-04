@@ -1,3 +1,5 @@
+<img title="D.I.R." alt="Alt text" src="/images/dir_horizontal.png">
+
 ## A Demonstration of our robot Talos
 
 
