@@ -7,7 +7,7 @@ global_costmap:
     publish_frequency: 0.5
     
     global_frame: map
-    robot_base_frame: base_footprint
+    robot_base_frame: base_link
     
     width: 50
     height: 50
