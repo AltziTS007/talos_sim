@@ -15,6 +15,8 @@ To start the simulation go to your terminal and hit ``` roslaunch talos_descript
 
 Next, we hit gmapping for mapping ```roslaunch talos_navigation gmapping.launch```.
 
+Move the robot with ```rosrun teleop_twist_keyboard teleop_twist_keyboard.py```.
+
 #### 3. Save the map
 
 Now we save the map by hitting ```rosrun map_server map_saver```.
