@@ -20,7 +20,71 @@ talos:
     joint: wheel_joint_fr
     #pid: {p: 0.000001, i: 0.0, d: 0.0}
 
+  # Trajectory Controllers ---------------------------------------
+  joint_trajectory_controller:
+    type: effort_controllers/JointTrajectoryController
+    joints:
+      - arm_joint_1
+      - arm_joint_2
+      - arm_joint_3
+      - arm_joint_4
+      - arm_joint_5
+    constraints:
+      goal_time: 2.0
+      stopped_velocity_tolerance: 5.0
+      arm_joint_1:
+          trajectory: 5.1
+          goal: 4.5
+      arm_joint_2:
+          trajectory: 5.1
+          goal: 4.5
+      arm_joint_3:
+          trajectory: 5.1
+          goal: 4.5
+      arm_joint_4:
+          trajectory: 5.1
+          goal: 4.5
+      arm_joint_5:
+          trajectory: 5.1
+          goal: 4.5           
+    gains:
+      arm_joint_1: {p: 100, d: 0.5, i: 1, i_clamp: 1}
+      arm_joint_2: {p: 100, d: 0.5, i: 1, i_clamp: 1}
+      arm_joint_3: {p: 100, d: 0.5, i: 1, i_clamp: 1}
+      arm_joint_4: {p: 100, d: 0.5, i: 1, i_clamp: 1}
+      arm_joint_5: {p: 100, d: 0.5, i: 1, i_clamp: 1}
+    
+    state_publish_rate: 25
+
+  hand_controller:
+    type: effort_controllers/JointTrajectoryController
+    joints:
+      - arm_joint_6
+      - arm_joint_7
+    constraints:
+      goal_time: 2.0
+      stopped_velocity_tolerance: 5.0
+      arm_joint_6:
+        trajectory: 5.1
+        goal: 4.5
+      arm_joint_7:
+        trajectory: 5.1
+        goal: 4.5
+
+    gains:
+      arm_joint_6: {p: 100, d: 0.5, i: 1, i_clamp: 1}
+      arm_joint_7: {p: 100, d: 0.5, i: 1, i_clamp: 1}
+
+    state_publish_rate: 25
+
   gazebo_ros_control/pid_gains:
     wheel_joint_fl: {p: 0.000001, i: 0.0, d: 0.0}
-    wheel_joint_b: {p: 0.000001, i: 0.0, d: 0.0}
+    wheel_joint_b:  {p: 0.000001, i: 0.0, d: 0.0}
     wheel_joint_fr: {p: 0.000001, i: 0.0, d: 0.0}
+    arm_joint_1: {p: 100, i: 0.01, d: 10.0}
+    arm_joint_2: {p: 100, i: 0.01, d: 10.0}
+    arm_joint_3: {p: 100, i: 0.01, d: 10.0}
+    arm_joint_4: {p: 100, i: 0.01, d: 10.0}
+    arm_joint_5: {p: 100, i: 0.01, d: 10.0}
+    arm_joint_6: {p: 100, i: 0.01, d: 10.0}
+    arm_joint_7: {p: 100, i: 0.01, d: 10.0}

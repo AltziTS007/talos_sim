@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+
+<robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+       xmlns:xacro="http://ros.org/wiki/xacro">
+
+	<xacro:macro name="talos_arm_gazebo" params="name">
+
+		<gazebo reference="${name}_link_0">
+			<!--material value="youbot/DarkGrey" /-->
+			<turnGravityOff>false</turnGravityOff>
+            <dampingFactor>100000</dampingFactor>
+            <kp>100000.0</kp>
+            <kd>1000.0</kd>
+            <mu1>1.5</mu1>
+            <mu2>1.5</mu2>
+            <fdir>1 0 0</fdir>
+            <maxVel>1.0</maxVel>
+            <minDepth>0.002</minDepth>
+			
+		</gazebo>
+
+		<gazebo reference="${name}_link_1">
+			<!--<material value="youbot/Orange" />-->
+			<turnGravityOff>false</turnGravityOff>
+            <dampingFactor>100000</dampingFactor>
+            <kp>100000.0</kp>
+            <kd>1000.0</kd>
+            <mu1>1.5</mu1>
+            <mu2>1.5</mu2>
+            <fdir>1 0 0</fdir>
+            <maxVel>1.0</maxVel>
+			
+		</gazebo>
+
+		<gazebo reference="${name}_link_2">
+			<!--<material value="youbot/Orange" />-->
+			<turnGravityOff>false</turnGravityOff>
+			<dampingFactor>100000</dampingFactor>
+            <kp>100000.0</kp>
+            <kd>1000.0</kd>
+            <mu1>1.5</mu1>
+            <mu2>1.5</mu2>
+            <fdir>1 0 0</fdir>
+            <maxVel>1.0</maxVel>
+
+		</gazebo>
+
+		<gazebo reference="${name}_link_3">
+			<!--<material value="youbot/Orange" />-->
+			<turnGravityOff>false</turnGravityOff>
+            <dampingFactor>100000</dampingFactor>
+            <kp>100000.0</kp>
+            <kd>1000.0</kd>
+            <mu1>1.5</mu1>
+            <mu2>1.5</mu2>
+            <fdir>1 0 0</fdir>
+            <maxVel>1.0</maxVel>
+			
+		</gazebo>
+
+		<gazebo reference="${name}_link_4">
+			<!--<material value="youbot/Orange" />-->
+			<turnGravityOff>false</turnGravityOff>
+            <dampingFactor>100000</dampingFactor>
+            <kp>100000.0</kp>
+            <kd>1000.0</kd>
+            <mu1>1.5</mu1>
+            <mu2>1.5</mu2>
+            <fdir>1 0 0</fdir>
+            <maxVel>1.0</maxVel>
+			
+		</gazebo>
+
+		<gazebo reference="${name}_link_5">
+			<!--<material value="youbot/DarkGrey" />-->
+			<turnGravityOff>false</turnGravityOff>
+            <dampingFactor>100000</dampingFactor>
+            <kp>100000.0</kp>
+            <kd>1000.0</kd>
+            <mu1>1.5</mu1>
+            <mu2>1.5</mu2>
+            <fdir>1 0 0</fdir>
+            <maxVel>1.0</maxVel>
+			
+		</gazebo>
+
+		<gazebo reference="${name}_link_6">
+			<!--<material value="youbot/DarkGrey" />-->
+			<turnGravityOff>false</turnGravityOff>
+            <dampingFactor>100000</dampingFactor>
+            <kp>100000.0</kp>
+            <kd>1000.0</kd>
+            <mu1>1.5</mu1>
+            <mu2>1.5</mu2>
+            <fdir>1 0 0</fdir>
+            <maxVel>1.0</maxVel>
+			
+		</gazebo>
+
+		<gazebo reference="${name}_link_7">
+			<!--<material value="youbot/DarkGrey" />-->
+			<turnGravityOff>false</turnGravityOff>
+            <dampingFactor>100000</dampingFactor>
+            <kp>100000.0</kp>
+            <kd>1000.0</kd>
+            <mu1>1.5</mu1>
+            <mu2>1.5</mu2>
+            <fdir>1 0 0</fdir>
+            <maxVel>1.0</maxVel>
+			
+		</gazebo>
+
+	</xacro:macro>
+
+</robot>

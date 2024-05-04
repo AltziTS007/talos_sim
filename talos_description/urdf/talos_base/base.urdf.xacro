@@ -203,13 +203,13 @@
 
     <!-- base laser front left-->
 
-    <xacro:sick_tim561_laser name="${name}_laser_left" parent="${name}" ros_topic="scan_left" update_rate="15" min_angle="-2.2" max_angle="2.5" >
+    <xacro:sick_tim561_laser name="${name}_laser_left" parent="${name}" ros_topic="scan_L" update_rate="15" min_angle="-2.2" max_angle="2.5" >
       <origin xyz="0.153 0.279 0.03" rpy="0 0 1.0821" />
     </xacro:sick_tim561_laser>
 
     <!-- base laser front right-->
 
-    <xacro:sick_tim561_laser name="${name}_laser_right" parent="${name}" ros_topic="scan_right" update_rate="15" min_angle="-2.5" max_angle="2.2" >
+    <xacro:sick_tim561_laser name="${name}_laser_right" parent="${name}" ros_topic="scan_R" update_rate="15" min_angle="-2.5" max_angle="2.2" >
       <origin xyz="0.153 -0.27 0.03" rpy="0 0 -1.0821" />
     </xacro:sick_tim561_laser>
 

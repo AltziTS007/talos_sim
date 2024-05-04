@@ -13,7 +13,7 @@
   <xacro:include filename="$(find talos_description)/urdf/talos_base/base.urdf.xacro" />
 
   <!-- talos arm -->
-  <!--include filename="$(find talos_description)/urdf/talos_arm/arm.urdf.xacro"/-->
+  <xacro:include filename="$(find talos_description)/urdf/talos_arm/arm.urdf.xacro"/>
  
   <!-- generic simulator_gazebo plugins for starting mechanism control, ros time, ros battery -->
   <!--include filename="$(find talos_description)/gazebo/gazebo.urdf.xacro" /-->
@@ -34,8 +34,8 @@
 
 <!-- foot for arm-->
   <xacro:talos_base name ="base"/>
-  <!--xacro:talos_arm name="arm" parent="base_link">
-    <origin xyz="0.143 0 0.046" rpy="0 0 0" />
-  </xacro:talos_arm-->
+  <xacro:talos_arm name="arm" parent="base_link">
+    <origin xyz="0.143 0 0.147" rpy="0 0 0" />
+  </xacro:talos_arm>
   
 </robot>
