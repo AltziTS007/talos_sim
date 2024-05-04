@@ -4,8 +4,8 @@
 #### 0. Preview
 
 First of all, clone it to your ros workspace source file then go to your root workspace and type catkin_make and after that source it.
-```git clone -b noetic-devel https://github.com/AltziTS007/talos_sim.git```.
-```rosdep install --from-paths src --ignore-src -r -y```
+```git clone -b noetic-devel https://github.com/AltziTS007/talos_sim.git```,
+```rosdep install --from-paths src --ignore-src -r -y```.
 
 #### 1. Launch our world and Talos
 
