@@ -22,6 +22,7 @@
        <geometry>
         <mesh filename="package://talos_description/meshes/sensors/sick_tim561.stl" />
       </geometry>
+      <xacro:material_Blue />
     </visual>
     
     <collision>

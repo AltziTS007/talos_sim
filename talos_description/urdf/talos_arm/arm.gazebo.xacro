@@ -5,7 +5,7 @@
        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
        xmlns:xacro="http://ros.org/wiki/xacro">
 
-	<xacro:macro name="talos_arm_gazebo" params="name">
+	<xacro:macro name="talos_arm_gazebo" params="name">   
 
 		<gazebo reference="${name}_link_0">
 			<!--material value="youbot/DarkGrey" /-->
@@ -87,30 +87,32 @@
 		</gazebo>
 
 		<gazebo reference="${name}_link_6">
-			<!--<material value="youbot/DarkGrey" />-->
-			<turnGravityOff>false</turnGravityOff>
-            <dampingFactor>100000</dampingFactor>
-            <kp>100000.0</kp>
-            <kd>1000.0</kd>
-            <mu1>1.5</mu1>
-            <mu2>1.5</mu2>
-            <fdir>1 0 0</fdir>
-            <maxVel>1.0</maxVel>
-			
+            <mu1>10.5</mu1>
+            <mu2>10.5</mu2>
 		</gazebo>
 
 		<gazebo reference="${name}_link_7">
-			<!--<material value="youbot/DarkGrey" />-->
-			<turnGravityOff>false</turnGravityOff>
-            <dampingFactor>100000</dampingFactor>
-            <kp>100000.0</kp>
-            <kd>1000.0</kd>
-            <mu1>1.5</mu1>
-            <mu2>1.5</mu2>
-            <fdir>1 0 0</fdir>
-            <maxVel>1.0</maxVel>
-			
+            <mu1>10.5</mu1>
+            <mu2>10.5</mu2>
 		</gazebo>
+
+        <gazebo>
+        <plugin name="gazebo_grasp_fix" filename="libgazebo_grasp_fix.so">
+                <arm>
+                <arm_name>talos</arm_name>
+                <palm_link>${name}_link_5</palm_link>
+                <gripper_link>${name}_link_6</gripper_link>
+                <gripper_link>${name}_link_7</gripper_link>
+                </arm>
+            <forces_angle_tolerance>100</forces_angle_tolerance>
+            <update_rate>4</update_rate>
+            <grip_count_threshold>4</grip_count_threshold>
+            <max_grip_count>8</max_grip_count>
+            <release_tolerance>0.007</release_tolerance>
+            <disable_collisions_on_attach>false</disable_collisions_on_attach>
+            <contact_topic>__default_topic__</contact_topic>
+            </plugin>
+        </gazebo>
 
 	</xacro:macro>
 

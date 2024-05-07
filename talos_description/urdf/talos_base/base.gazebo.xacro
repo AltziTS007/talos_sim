@@ -5,6 +5,17 @@
         xmlns:xacro="http://ros.org/wiki/xacro">
 
   <xacro:macro name="talos_base_gazebo">
+
+    <gazebo>
+
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+
+            <robotNamespace>/talos</robotNamespace>
+
+        </plugin>
+
+    </gazebo>
+    
     <gazebo>
       <plugin name="object_controller" filename="libgazebo_ros_planar_move.so">
         <commandTopic>/cmd_vel</commandTopic>
@@ -61,9 +72,6 @@
       <fdir>1 0 0</fdir>
       <maxVel>1.0</maxVel>
       <minDepth>0.0</minDepth>
-    </gazebo>
-    
-    <gazebo reference="caster_link_b">
     </gazebo>
 
 </robot>

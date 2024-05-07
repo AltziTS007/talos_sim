@@ -2,7 +2,7 @@
 <launch>
 
   <arg name="world" default="empty"/> 
-  <arg name="paused" default="false"/>
+  <arg name="paused" default="true"/>
   <arg name="use_sim_time" default="true"/>
   <arg name="gui" default="true"/>
   <arg name="headless" default="false"/>
@@ -29,14 +29,14 @@
     type="spawner"
     respawn="false"
     output="screen"
-    args="joint_state_controller joint_trajectory_controller hand_controller"
+    args="joint_state_controller widowxl_arm_controller widowxl_gripper_controller"
     ns="/talos"
   />
   
   <param name="robot_description" command="$(find xacro)/xacro '$(find talos_description)/urdf/robots/talos.urdf.xacro'"/>
 
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
-      <remap from="joint_state" to="/simple_model/joint_states" />
+      <remap from="joint_state" to="/talos/joint_states" />
   </node>
 
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
@@ -44,5 +44,7 @@
   </node>
 
   <node args="-param robot_description -urdf -model talos" name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" />
+
+  <!--include file="$(find widowxl_moveit_config)/launch/demo.launch"/-->
 
 </launch>

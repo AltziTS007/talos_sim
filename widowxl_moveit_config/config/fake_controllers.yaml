@@ -1,0 +1,19 @@
+controller_list:
+  - name: fake_widowxl_arm_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - arm_joint_0
+      - arm_joint_1
+      - arm_joint_2
+      - arm_joint_3
+      - arm_joint_4
+  - name: fake_widowxl_gripper_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - arm_joint_6
+      - arm_joint_7
+initial:  # Define initial robot poses per group
+  - group: widowxl_arm
+    pose: home
+  - group: widowxl_gripper
+    pose: fully_closed

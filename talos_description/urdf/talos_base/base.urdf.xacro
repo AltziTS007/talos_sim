@@ -42,7 +42,8 @@
         <origin xyz="0 0 0" rpy="0 0 0" />  
         <geometry>
           <mesh filename="package://talos_description/meshes/talos_base/talos_base.stl"/>
-        </geometry> 
+        </geometry>
+        <xacro:material_DarkGrey />
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
@@ -90,6 +91,7 @@
         <geometry>
           <mesh filename="package://talos_description/meshes/talos_base/omniwheel.stl" />
         </geometry>
+        <xacro:material_DarkGrey />
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="${M_PI/2} 0 0" />
@@ -137,6 +139,7 @@
         <geometry>
           <mesh filename="package://talos_description/meshes/talos_base/omniwheel.stl" />
         </geometry>
+        <xacro:material_DarkGrey />
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="${M_PI/2} 0 0" />
@@ -184,6 +187,7 @@
         <geometry>
           <mesh filename="package://talos_description/meshes/talos_base/omniwheel.stl" />
         </geometry>
+        <xacro:material_DarkGrey />
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="${M_PI/2} 0 0" />

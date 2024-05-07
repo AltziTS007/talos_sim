@@ -5,7 +5,8 @@
 	<xacro:property name="M_PI" value="3.1415926535897931" />
     <xacro:property name="threshold" value="0.01" />
 
-	<!-- arm limits positions (deg) -->
+	<!-- arm limits positions (rad) -->
+	<xacro:property name="joint_0_limit" value="3.1415" />
 	<xacro:property name="joint_1_limit" value="3.1415" />
 	<xacro:property name="joint_2_limit" value="1.571" />
 	<xacro:property name="joint_3_limit" value="1.571" />
@@ -66,12 +67,12 @@
 	</xacro:macro>
 	<xacro:macro name="link_6_inertia_tensor">
 		<origin xyz="0 0 0" rpy="0 0 1.57" />
-		<inertia ixx="0.000280" ixy="0.000000" ixz="0.000000" iyy="0.000339" iyz="0.000000" izz="0.000119" />
+		<inertia ixx="0.01" ixy="0.000000" ixz="0.000000" iyy="0.01" iyz="0.000000" izz="0.01" />
 
 	</xacro:macro>
 	<xacro:macro name="link_7_inertia_tensor">
 		<origin xyz="0 0 0" rpy="0 0 -1.57" />
-		<inertia ixx="0.000280" ixy="0.000000" ixz="0.000000" iyy="0.000339" iyz="0.000000" izz="0.000119" />
+		<inertia ixx="0.01" ixy="0.000000" ixz="0.000000" iyy="0.01" iyz="0.000000" izz="0.01" />
 
 	</xacro:macro>
 

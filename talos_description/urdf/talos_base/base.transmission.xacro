@@ -12,9 +12,11 @@
     <!-- front left omni-wheel -->
     <transmission name="wheel_trans_fl">
       <type>transmission_interface/SimpleTransmission</type>
-      <joint name="wheel_joint_fl"/>
+      <joint name="wheel_joint_fl">
+				<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+			</joint>
       <actuator name="wheel_motor_fl">
-        <hardwareInterface>VelocityJointInterface</hardwareInterface>
+        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
         <mechanicalReduction>${wheel_mechanical_reduction}</mechanicalReduction>
       </actuator>
     </transmission>
@@ -22,9 +24,11 @@
     <!-- front right omni-wheel -->
     <transmission name="wheel_trans_fr">
       <type>transmission_interface/SimpleTransmission</type>
-      <joint name="wheel_joint_fr"/>
+      <joint name="wheel_joint_fr">
+				<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+			</joint>
       <actuator name="wheel_motor_fr">
-        <hardwareInterface>VelocityJointInterface</hardwareInterface>
+        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
         <mechanicalReduction>${wheel_mechanical_reduction}</mechanicalReduction>
       </actuator>
     </transmission>
@@ -32,9 +36,11 @@
     <!-- back omni-wheel -->
     <transmission name="wheel_trans_b">
       <type>transmission_interface/SimpleTransmission</type>
-      <joint name="wheel_joint_b"/>
+      <joint name="wheel_joint_b">
+				<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+			</joint>
       <actuator name="wheel_motor_b">
-        <hardwareInterface>VelocityJointInterface</hardwareInterface>
+        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
         <mechanicalReduction>${wheel_mechanical_reduction}</mechanicalReduction>
       </actuator>
     </transmission>
