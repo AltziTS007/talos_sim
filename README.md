@@ -20,7 +20,7 @@ And don't forget to sauce.
 
 #### 1. Launch our world and Talos
 
-To start the simulation go to your terminal and hit ```roslaunch talos_description spawn_robocup.launch```.
+To start the simulation go to your terminal and hit ```roslaunch talos_description spawn_robocup.launch``` and hit play to gazebo in the left corner.
 
 #### 2. Launch gmapping
 
