@@ -7,7 +7,7 @@
 	<!-- reduction ratio doesn't affect the model-->
 	<!-- reduction ratio must not to be 0-->
 	<xacro:macro name="talos_arm_transmission" params="name">
-	
+
 		<transmission name="${name}_trans_0">
 			<type>transmission_interface/SimpleTransmission</type>
 			<joint name="${name}_joint_0">

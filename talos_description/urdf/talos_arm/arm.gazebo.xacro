@@ -30,8 +30,7 @@
             <mu1>1.5</mu1>
             <mu2>1.5</mu2>
             <fdir>1 0 0</fdir>
-            <maxVel>1.0</maxVel>
-			
+            <maxVel>1.0</maxVel>		
 		</gazebo>
 
 		<gazebo reference="${name}_link_2">
@@ -44,7 +43,6 @@
             <mu2>1.5</mu2>
             <fdir>1 0 0</fdir>
             <maxVel>1.0</maxVel>
-
 		</gazebo>
 
 		<gazebo reference="${name}_link_3">
@@ -56,8 +54,7 @@
             <mu1>1.5</mu1>
             <mu2>1.5</mu2>
             <fdir>1 0 0</fdir>
-            <maxVel>1.0</maxVel>
-			
+            <maxVel>1.0</maxVel>	
 		</gazebo>
 
 		<gazebo reference="${name}_link_4">
@@ -69,8 +66,7 @@
             <mu1>1.5</mu1>
             <mu2>1.5</mu2>
             <fdir>1 0 0</fdir>
-            <maxVel>1.0</maxVel>
-			
+            <maxVel>1.0</maxVel>			
 		</gazebo>
 
 		<gazebo reference="${name}_link_5">
@@ -83,7 +79,6 @@
             <mu2>1.5</mu2>
             <fdir>1 0 0</fdir>
             <maxVel>1.0</maxVel>
-			
 		</gazebo>
 
 		<gazebo reference="${name}_link_6">
@@ -95,7 +90,7 @@
             <mu1>10.5</mu1>
             <mu2>10.5</mu2>
 		</gazebo>
-
+  
         <gazebo>
         <plugin name="gazebo_grasp_fix" filename="libgazebo_grasp_fix.so">
                 <arm>
@@ -113,7 +108,6 @@
             <contact_topic>__default_topic__</contact_topic>
             </plugin>
         </gazebo>
-
 	</xacro:macro>
 
 </robot>
