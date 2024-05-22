@@ -52,7 +52,17 @@
           <mesh filename="package://talos_description/meshes/talos_base/talos_base.stl"/>
         </geometry>
       </collision>
-    </link>		
+    </link>
+
+    <link name="imu_link"/>
+
+    <!-- imu-fixed -->		
+    <joint name="fixed_imu" type="fixed">
+      <origin xyz="0.118 0.0 0.05" rpy="0 0 0" />
+      <axis xyz="0 0 1" />
+      <parent link="${name}_link"/>
+      <child link="imu_link" />
+    </joint>
 
     <!-- front left omni-wheel -->		
     <joint name="caster_joint_fl" type="fixed">
