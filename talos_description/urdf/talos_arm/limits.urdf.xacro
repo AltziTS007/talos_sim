@@ -68,12 +68,10 @@
 	<xacro:macro name="link_6_inertia_tensor">
 		<origin xyz="0 0 0" rpy="0 0 1.57" />
 		<inertia ixx="0.01" ixy="0.000000" ixz="0.000000" iyy="0.01" iyz="0.000000" izz="0.01" />
-
 	</xacro:macro>
 	<xacro:macro name="link_7_inertia_tensor">
 		<origin xyz="0 0 0" rpy="0 0 -1.57" />
 		<inertia ixx="0.01" ixy="0.000000" ixz="0.000000" iyy="0.01" iyz="0.000000" izz="0.01" />
-
 	</xacro:macro>
 
 

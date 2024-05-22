@@ -74,5 +74,3 @@ talos:
     gains:
       arm_joint_6: {p: 10000.0, d: 0, i: 10, i_clamp: 1}
       arm_joint_7: {p: 10000.0, d: 0, i: 10, i_clamp: 1}
-
-    state_publish_rate: 25

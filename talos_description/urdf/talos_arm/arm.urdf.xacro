@@ -119,8 +119,6 @@
 					<mesh filename="package://talos_description/meshes/talos_arm/forearm_link.stl" />
 				</geometry>
 				<xacro:material_Black />
-			</visual>
-			
 			<collision>
 				<!--<origin xyz="0.001 -0.041 0.074" rpy="0 0 0" />-->
 				<origin xyz="0 0 0.142" rpy="0 0 0" />
@@ -209,10 +207,9 @@
 			<!--<calibration rising="${arm_4_ref}" falling="${arm_4_ref}"/>-->
 			<dynamics damping="10" friction="5" />
 			<limit effort="100" velocity="${M_PI / 2.0}" lower="-${joint_5_limit}" upper="${joint_5_limit}"/>
-			
 		</joint>
 
-		<link name="${name}_link_5">
+		<link name="${name}_link_6">
 			<inertial>
 				<mass value="${link_5_mass}"/>
 				<xacro:link_4_inertia_tensor />
@@ -280,7 +277,6 @@
 			<dynamics damping="1000"/>
 			<!--<calibration rising="${arm_5_ref}" falling="${arm_5_ref}"/>-->
 			<limit effort="10000" velocity="0.5" lower="0" upper="${joint_7_limit}" />
-
 		</joint>
 
 		<link name="${name}_link_7">
