@@ -2,41 +2,34 @@
 <robot xmlns:xacro="http://ros.org/wiki/xacro">>
 
 	<!-- common properties -->
-	<property name="M_PI" value="3.1415926535897931" />
-        <property name="threshold" value="0.01" />
+	<xacro:property name="M_PI" value="3.1415926535897931" />
+    <xacro:property name="threshold" value="0.01" />
 
-	<!-- arm limits positions (deg) -->
-	<property name="joint_1_limit" value="${M_PI * (169 + 169) / 180}" />
-	<property name="joint_2_limit" value="${M_PI * (90 + 65) / 180}" />
-	<property name="joint_3_limit" value="${M_PI * (146 + 151) / 180}" />
-	<property name="joint_4_limit" value="${M_PI * (102.5 + 102.5) / 180}" />
-	<property name="joint_5_limit" value="${M_PI * (167.5 + 167.5) / 180}" />
-	<property name="joint_6_limit" value="${M_PI * (167.5 + 167.5) / 180}" />
-	<property name="joint_7_limit" value="${M_PI * (167.5 + 167.5) / 180}" />
-
-    <property name="joint_1_limit_soft" value="${M_PI * (169 + 169) / 180 - threshold}" />
-	<property name="joint_2_limit_soft" value="${M_PI * (90 + 65) / 180 - threshold}" />
-	<property name="joint_3_limit_soft" value="${M_PI * (146 + 151) / 180 - threshold}" />
-	<property name="joint_4_limit_soft" value="${M_PI * (102.5 + 102.5) / 180 - threshold}" />
-	<property name="joint_5_limit_soft" value="${M_PI * (167.5 + 167.5) / 180 - threshold}" />
-	<property name="joint_6_limit_soft" value="${M_PI * (167.5 + 167.5) / 180 - threshold}" />
-	<property name="joint_7_limit_soft" value="${M_PI * (167.5 + 167.5) / 180 - threshold}" />
+	<!-- arm limits positions (rad) -->
+	<xacro:property name="joint_0_limit" value="3.1415" />
+	<xacro:property name="joint_1_limit" value="3.1415" />
+	<xacro:property name="joint_2_limit" value="1.571" />
+	<xacro:property name="joint_3_limit" value="1.571" />
+	<xacro:property name="joint_4_limit" value="1.571" />
+	<xacro:property name="joint_5_limit" value="2.617" />
+	<xacro:property name="joint_6_limit" value="0.024" />
+	<xacro:property name="joint_7_limit" value="0.024" />
 
 	<!-- dynamic properties : mass (kg) Alu data sheet -->
-	<property name="link_0_mass" value="0.845" />
-	<property name="link_1_mass" value="2.412" />
-	<property name="link_2_mass" value="1.155" />
-	<property name="link_3_mass" value="0.934" />
-	<property name="link_4_mass" value="0.877" />
-	<property name="link_5_mass" value="0.251" />
-	<property name="link_6_mass" value="0.01" />
-	<property name="link_7_mass" value="0.01" />
-	<!--<property name="link_0_mass" value="0.845" />
-	<property name="link_1_mass" value="0.1" />
-	<property name="link_2_mass" value="0.1" />
-	<property name="link_3_mass" value="0.1" />
-	<property name="link_4_mass" value="0.1" />
-	<property name="link_5_mass" value="0.1" />-->
+	<xacro:property name="link_0_mass" value="0.01" />
+	<xacro:property name="link_1_mass" value="0.01" />
+	<xacro:property name="link_2_mass" value="0.01" />
+	<xacro:property name="link_3_mass" value="0.01" />
+	<xacro:property name="link_4_mass" value="0.01" />
+	<xacro:property name="link_5_mass" value="0.01" />
+	<xacro:property name="link_6_mass" value="0.01" />
+	<xacro:property name="link_7_mass" value="0.01" />
+	<!--<xacro:property name="link_0_mass" value="0.845" />
+	<xacro:property name="link_1_mass" value="0.1" />
+	<xacro:property name="link_2_mass" value="0.1" />
+	<xacro:property name="link_3_mass" value="0.1" />
+	<xacro:property name="link_4_mass" value="0.1" />
+	<xacro:property name="link_5_mass" value="0.1" />-->
 	<!-- TODO: add inertia tensor-->
 	<xacro:macro name="default_origin">
         	<origin xyz="0 0 0" rpy="0 0 0"/> <!-- no data known -->
@@ -74,13 +67,11 @@
 	</xacro:macro>
 	<xacro:macro name="link_6_inertia_tensor">
 		<origin xyz="0 0 0" rpy="0 0 1.57" />
-		<inertia ixx="0.000280" ixy="0.000000" ixz="0.000000" iyy="0.000339" iyz="0.000000" izz="0.000119" />
-
+		<inertia ixx="0.01" ixy="0.000000" ixz="0.000000" iyy="0.01" iyz="0.000000" izz="0.01" />
 	</xacro:macro>
 	<xacro:macro name="link_7_inertia_tensor">
 		<origin xyz="0 0 0" rpy="0 0 -1.57" />
-		<inertia ixx="0.000280" ixy="0.000000" ixz="0.000000" iyy="0.000339" iyz="0.000000" izz="0.000119" />
-
+		<inertia ixx="0.01" ixy="0.000000" ixz="0.000000" iyy="0.01" iyz="0.000000" izz="0.01" />
 	</xacro:macro>
 
 

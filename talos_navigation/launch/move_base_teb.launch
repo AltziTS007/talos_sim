@@ -17,14 +17,14 @@
                 <param name="angle_increment" value="0.0058"/>
                 <param name="scan_time" value="0.0333333"/>
                 <param name="range_min" value="0.1"/>
-                <param name="range_max" value="1.0"/>
+                <param name="range_max" value="2.0"/>
 	</node>
 
  <!-- Run the map server --> 
-   <node name="map_server" pkg="map_server" type="map_server" args="$(find talos_navigation)/maps/final_map.yaml "/>
+   <node name="map_server" pkg="map_server" type="map_server" args="$(find talos_navigation)/maps/leipzig_2016/map.yaml "/>
 
  <!--- Run AMCL --> 
-    <include file="$(find talos_navigation)/examples/amcl_omni.launch" />
+    <include file="$(find talos_navigation)/launch/amcl_omni.launch" />
 
 
    <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
@@ -42,7 +42,7 @@
 
       <remap from="odom" to="/odometry/filtered"/>
 
-      <remap from="cmd_vel" to="/gaz_controller/cmd_vel"/>
+      <remap from="cmd_vel" to="/cmd_vel"/>
       <remap from="odom" to="odom"/>
       <remap from="scan" to="scan_multi"/>
       <!--param name="move_base/DWAPlannerROS/yaw_goal_tolerance" value="0.1"/>

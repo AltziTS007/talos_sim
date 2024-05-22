@@ -1,26 +1,47 @@
 <?xml version="1.0"?>
-<robot name="talos" xmlns:xacro="http://www.ros.org/wiki/xacro"> 
+<robot  xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+        xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+        xmlns:xacro="http://ros.org/wiki/xacro">
 
   <xacro:macro name="talos_base_gazebo">
+
+    <gazebo>
+
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+
+            <robotNamespace>/talos</robotNamespace>
+
+        </plugin>
+
+    </gazebo>
+    
     <gazebo>
       <plugin name="object_controller" filename="libgazebo_ros_planar_move.so">
-        <commandTopic>cmd_vel</commandTopic>
-        <odometryTopic>odom</odometryTopic>
+        <commandTopic>/cmd_vel</commandTopic>
+        <odometryTopic>/odom</odometryTopic>
         <odometryFrame>odom</odometryFrame>
         <odometryRate>20.0</odometryRate>
         <robotBaseFrame>base_link</robotBaseFrame>
       </plugin>
     </gazebo>
+  </xacro:macro>
 
-    <gazebo reference="${name}_footprint">
+    <gazebo reference="talos_base">
       <gravity>true</gravity>
       <selfCollide>true</selfCollide>
     </gazebo>
 
     <!-- front left wheel -->
     <gazebo reference="wheel_link_fl">
-      <kp>1000000</kp>
-      <kd>100</kd>
+      <dampingFactor>100000</dampingFactor>
+      <kp>100000.0</kp>
+      <kd>1000.0</kd>
+      <mu1>0</mu1>
+      <mu2>0</mu2>
+      <fdir>1 0 0</fdir>
+      <maxVel>1.0</maxVel>
+      <minDepth>0.0</minDepth>
     </gazebo>
     
     <gazebo reference="caster_link_fl">
@@ -28,8 +49,14 @@
 
     <!-- front right wheel -->
     <gazebo reference="wheel_link_fr">
-      <kp>1000000</kp>
-      <kd>100</kd>
+      <dampingFactor>100000</dampingFactor>
+      <kp>100000.0</kp>
+      <kd>1000.0</kd>
+      <mu1>0</mu1>
+      <mu2>0</mu2>
+      <fdir>1 0 0</fdir>
+      <maxVel>1.0</maxVel>
+      <minDepth>0.0</minDepth>
     </gazebo>
     
     <gazebo reference="caster_link_fr">   
@@ -37,13 +64,14 @@
 
     <!-- back left wheel -->
     <gazebo reference="wheel_link_b">
-      <kp>1000000</kp>
-      <kd>100</kd>
+      <dampingFactor>100000</dampingFactor>
+      <kp>100000.0</kp>
+      <kd>1000.0</kd>
+      <mu1>0</mu1>
+      <mu2>0</mu2>
+      <fdir>1 0 0</fdir>
+      <maxVel>1.0</maxVel>
+      <minDepth>0.0</minDepth>
     </gazebo>
-    
-    <gazebo reference="caster_link_b">
-    </gazebo>
-
-</xacro:macro>
 
 </robot>

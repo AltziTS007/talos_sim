@@ -4,34 +4,38 @@ talos:
     type: joint_state_controller/JointStateController
     publish_rate: 50
 
+
   left_joint_velocity_controller:
     type: velocity_controllers/JointVelocityController
-    joint: wheel_joint_fl
-    #pid: {p: 0.000001, i: 0.0, d: 0.0}
-
+    joint: wheel_joint_f
+    #wheel_joint_f: {p: 100.0, i: 0.0, d: 1.0}
 
   back_joint_velocity_controller:
     type: velocity_controllers/JointVelocityController
     joint: wheel_joint_b
-    #pid: {p: 0.000001, i: 0.0, d: 0.0}
+    #wheel_joint_b: {p: 100.0, i: 0.0, d: 1.0}
 
   right_joint_velocity_controller:
     type: velocity_controllers/JointVelocityController
     joint: wheel_joint_fr
-    #pid: {p: 0.000001, i: 0.0, d: 0.0}
+    #wheel_joint_fr: {p: 100.0, i: 0.0, d: 1.0}
+
 
   # Trajectory Controllers ---------------------------------------
-  joint_trajectory_controller:
+  widowxl_arm_controller:
     type: effort_controllers/JointTrajectoryController
     joints:
+      - arm_joint_0
       - arm_joint_1
       - arm_joint_2
       - arm_joint_3
       - arm_joint_4
-      - arm_joint_5
     constraints:
       goal_time: 2.0
       stopped_velocity_tolerance: 5.0
+      arm_joint_0:
+          trajectory: 5.1
+          goal: 4.5
       arm_joint_1:
           trajectory: 5.1
           goal: 4.5
@@ -43,20 +47,17 @@ talos:
           goal: 4.5
       arm_joint_4:
           trajectory: 5.1
-          goal: 4.5
-      arm_joint_5:
-          trajectory: 5.1
-          goal: 4.5           
+          goal: 4.5      
     gains:
+      arm_joint_0: {p: 100, d: 0, i: 1, i_clamp: 1}
       arm_joint_1: {p: 100, d: 0, i: 1, i_clamp: 1}
       arm_joint_2: {p: 100, d: 0, i: 1, i_clamp: 1}
       arm_joint_3: {p: 100, d: 0, i: 1, i_clamp: 1}
       arm_joint_4: {p: 100, d: 0, i: 1, i_clamp: 1}
-      arm_joint_5: {p: 100, d: 0, i: 1, i_clamp: 1}
     
     state_publish_rate: 25
 
-  hand_controller:
+  widowxl_gripper_controller:
     type: effort_controllers/JointTrajectoryController
     joints:
       - arm_joint_6
@@ -70,21 +71,6 @@ talos:
       arm_joint_7:
         trajectory: 5.1
         goal: 4.5
-
     gains:
-      arm_joint_6: {p: 10000, d: 0, i: 10, i_clamp: 1}
-      arm_joint_7: {p: 10000, d: 0, i: 10, i_clamp: 1}
-
-    state_publish_rate: 25
-
-  gazebo_ros_control/pid_gains:
-    wheel_joint_fl: {p: 0.000001, i: 0.0, d: 0.0}
-    wheel_joint_b: {p: 0.000001, i: 0.0, d: 0.0}
-    wheel_joint_fr: {p: 0.000001, i: 0.0, d: 0.0}
-    arm_joint_1: {p: 100, i: 1, d: 0.0}
-    arm_joint_2: {p: 100, i: 1, d: 0.0}
-    arm_joint_3: {p: 100, i: 1, d: 0.0}
-    arm_joint_4: {p: 100, i: 1, d: 0.0}
-    arm_joint_5: {p: 100, i: 1, d: 0.0}
-    arm_joint_6: {p: 100, i: 1, d: 0}
-    arm_joint_7: {p: 100, i: 1, d: 0}
+      arm_joint_6: {p: 10000.0, d: 0, i: 10, i_clamp: 1}
+      arm_joint_7: {p: 10000.0, d: 0, i: 10, i_clamp: 1}

@@ -7,26 +7,26 @@
   <xacro:macro name="sick_tim561_laser" params="name parent *origin ros_topic update_rate min_angle max_angle">
     <joint name="${name}_sick_tim561_laser_joint" type="fixed">
       <axis xyz="0 1 0" />
-      <insert_block name="origin" />
+      <xacro:insert_block name="origin" />
       <parent link="${parent}_link"/>
       <child link="${name}_link"/>
     </joint>
     <link name="${name}_link" type="laser">
       <inertial>
         <mass value="0.16" />
-        <origin xyz="0 0 0" rpy="0 0 0" />
+        <origin xyz="0 0 0.04" rpy="0 0 0" />
         <inertia ixx="0.1" ixy="0" ixz="0" iyy="0.1" iyz="0" izz="0.1" />
       </inertial>
       <visual>
-      	<origin xyz="0 0 0" rpy="0 0 0" />
+      	<origin xyz="0 0 0.04" rpy="0 0 0" />
        <geometry>
         <mesh filename="package://talos_description/meshes/sensors/sick_tim561.stl" />
       </geometry>
-      <material name="DarkGrey" />
+      <xacro:material_Blue />
     </visual>
     
     <collision>
-      <origin xyz="0 0 0" rpy="0 0 0" />
+      <origin xyz="0 0 0.04" rpy="0 0 0" />
       <geometry>
        <mesh filename="package://talos_description/meshes/sensors/sick_tim561.stl" />
        

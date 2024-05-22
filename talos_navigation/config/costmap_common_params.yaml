@@ -18,7 +18,7 @@ plugins:
     - {name: obstacle_layer,   type: "costmap_2d::ObstacleLayer"}
 
 inflation:
-    inflation_radius:  0.5
+    inflation_radius:  0.3
     cost_scaling_factor: 2.0
 #static_layer:
 #   map_topic: map

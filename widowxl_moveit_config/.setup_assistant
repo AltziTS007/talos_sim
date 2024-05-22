@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: talos_description
+    relative_path: urdf/robots/talos.urdf.xacro
+    xacro_args: ""
+  SRDF:
+    relative_path: config/talos.srdf
+  CONFIG:
+    author_name: Altzi
+    author_email: ace.tsan21@gmail.com
+    generated_timestamp: 1715106171

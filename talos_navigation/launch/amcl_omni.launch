@@ -7,7 +7,7 @@
         <!-- Publish scans from best pose at a max of 10 Hz -->
         <remap from="scan" to="scan_multi"/>
         <param name="odom_model_type" value="omni-corrected"/>
-        <param name="base_frame_id" value="base_footprint"/>
+        <param name="base_frame_id" value="base_link"/>
         <param name="gui_publish_rate" value="10.0"/><!--(double,default:-1.0Hz)Maximum rate (Hz) at which scans and paths are published for visualization, -1.0 to disable.-->
         <param name="laser_max_beams" value="30"/><!--(int,default:30)How many evenly-spaced beams in each scan to be used when updating the filter.-->
         <param name="min_particles" value="500"/> <!--(int,default:100)Minimum allowed number of particles.-->
