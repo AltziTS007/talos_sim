@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <model name="yellow_black_tape">
+    <static>false</static>
+    <link name="link">
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <uri>model://robocup_meshes/barrier_tapes/red_meshes/Barrier_Tape_Yellow_Black.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>model://robocup_meshes/barrier_tapes/red_meshes/Barrier_Tape_Yellow_Black.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+</sdf>

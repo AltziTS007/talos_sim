@@ -291,6 +291,16 @@
 			</collision>
 		</link>
 
+		<!-- joint between arm_5_link and arm_link_ee -->
+		<joint name="${name}_joint_ee" type="fixed">
+			<origin xyz="0 0 0.05" rpy="0 0 0" />
+			<parent link="${name}_link_5"/>
+			<child link="${name}_link_ee"/>
+			<axis xyz="0 1 0" />
+		</joint>
+
+		<link name="${name}_link_ee"/>
+
 		<!-- extensions -->
 		<xacro:talos_arm_gazebo name="${name}" />
 		<xacro:talos_arm_transmission name="${name}" />

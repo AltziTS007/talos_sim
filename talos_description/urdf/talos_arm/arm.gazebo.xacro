@@ -70,8 +70,6 @@
 		</gazebo>
 
 		<gazebo reference="${name}_link_5">
-			<!--<material value="youbot/DarkGrey" />-->
-			<turnGravityOff>false</turnGravityOff>
             <dampingFactor>100000</dampingFactor>
             <kp>100000.0</kp>
             <kd>1000.0</kd>
@@ -93,12 +91,12 @@
   
         <gazebo>
         <plugin name="gazebo_grasp_fix" filename="libgazebo_grasp_fix.so">
-                <arm>
-                <arm_name>talos</arm_name>
-                <palm_link>${name}_link_5</palm_link>
-                <gripper_link>${name}_link_6</gripper_link>
-                <gripper_link>${name}_link_7</gripper_link>
-                </arm>
+                  <arm>
+                  <arm_name>talos</arm_name>
+                  <palm_link>${name}_link_ee</palm_link>
+                  <gripper_link>${name}_link_6</gripper_link>
+                  <gripper_link>${name}_link_7</gripper_link>
+                  </arm>
             <forces_angle_tolerance>100</forces_angle_tolerance>
             <update_rate>4</update_rate>
             <grip_count_threshold>4</grip_count_threshold>
