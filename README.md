@@ -120,6 +120,7 @@ This project is developed and maintained by AltziTS007. Special thanks to the co
 
 ### Sources from GitHub:
 
+- https://github.com/leggedrobotics/darknet_ros
 - https://github.com/iralabdisco/ira_laser_tools
 - https://github.com/ros-perception/slam_gmapping
 - https://github.com/ros-planning/navigation
