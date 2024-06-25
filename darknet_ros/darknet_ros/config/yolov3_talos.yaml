@@ -1,0 +1,28 @@
+yolo_model:
+
+  config_file:
+    name: yolov3-robocup.cfg
+  weight_file:
+    name: yolov3-robocup_v1.weights
+  threshold:
+    value: 0.3
+  detection_classes:
+    names:
+     - AllenKey
+     - Axis2
+     - Bearing2
+     - Drill
+     - F20_20_B
+     - F20_20_G
+     - Housing
+     - M20
+     - M20_100
+     - M30
+     - Motor2
+     - S40_40_B
+     - S40_40_G
+     - Screwdriver
+     - Spacer
+     - Wrench
+     - container_box_blue
+     - container_box_red

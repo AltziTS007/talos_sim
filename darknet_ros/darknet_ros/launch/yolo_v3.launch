@@ -3,7 +3,7 @@
 <launch>
   
   <!-- Use YOLOv3 -->
-  <arg name="network_param_file"         default="$(find darknet_ros)/config/yolov3.yaml"/>
+  <arg name="network_param_file"         default="$(find darknet_ros)/config/yolov3_talos.yaml"/>
   <arg name="image" default="/camera/color/image_raw" />
 
 
