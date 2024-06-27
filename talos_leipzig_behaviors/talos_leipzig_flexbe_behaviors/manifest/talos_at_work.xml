@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<behavior name="talos_at_work">
+
+	<executable package_path="talos_leipzig_flexbe_behaviors.talos_at_work_sm" class="talos_at_workSM" />
+	<tagstring>work, nav</tagstring>
+	<author>Altzi Tsanko</author>
+	<date>Thu Jun 27 2024</date>
+	<description>
+		Simple Navigation RoboCup@Work
+	</description>
+
+
+	<!-- Contained Behaviors -->
+
+	<!-- Available Parameters -->
+
+</behavior>
