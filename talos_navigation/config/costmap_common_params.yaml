@@ -1,5 +1,5 @@
 #footprint: [[0.05,0.3], [0.05,-0.3], [-0.44,-0.05], [-0.45,0.05]]
-robot_radius: 0.001
+robot_radius: 0.05
 publish_frequency: 8.0
 subscribe_to_updates: true
 
@@ -18,7 +18,7 @@ plugins:
     - {name: obstacle_layer,   type: "costmap_2d::ObstacleLayer"}
 
 inflation:
-    inflation_radius:  0.3
+    inflation_radius:  0.33
     cost_scaling_factor: 2.0
 #static_layer:
 #   map_topic: map

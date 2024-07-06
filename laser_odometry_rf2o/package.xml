@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>laser_odometry_rf2o</name>
+  <version>0.0.0</version>
+  <description>
+    The laser_odometry_rf2o package is a wrapper (a plugin)
+    to use the rf2o scan matcher [1] in the
+    laser_odometry package.
+  </description>
+
+  <author email="jeremie.deray@pal-robotics.com">Jeremie Deray</author>
+  <maintainer email="jeremie.deray@pal-robotics.com">Jeremie Deray</maintainer>
+
+  <!-- this package license -->
+  <license>Apache-2.0</license>
+
+  <!-- rf2o license -->
+  <license>GPLv3</license>
+  <url type="website">https://github.com/MAPIRlab/rf2o_laser_odometry</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>roscpp</depend>
+  <depend>rf2o_laser_odometry</depend>
+  <depend>laser_odometry_core</depend>
+  <!-- <depend>rosparam_handler</depend> -->
+  <!-- <depend>dynamic_reconfigure</depend> -->
+
+  <export>
+    <laser_odometry_core plugin="${prefix}/laser_odometry_plugins.xml" />
+  </export>
+</package>

@@ -1,0 +1,9 @@
+<library path="lib/libatwork_commander_gui">
+  <class name="atwork_commander_gui/RefboxUI"
+         type="atwork_commander::RefboxUI"
+         base_class_type="rviz::Panel">
+    <description>
+      A panel plugin allowing manipulation of worldmodel data.
+    </description>
+  </class>
+</library>

@@ -31,9 +31,7 @@ class RefBoxParserState(EventState):
     def __init__(self):
         super(RefBoxParserState, self).__init__(outcomes=['continue', 'error_parsing'], output_keys=['task', 'sa_poses', 'flag_start'])
         self.objtask_topic = 'atwork_commander/object_task'
-        # Set the relative path to the semantic map
-        script_dir = os.path.dirname(__file__)
-        self.semantic_map_path = os.path.join(script_dir, 'semantic_map', 'semantic_map.yaml')
+        self.semantic_map_path = '/home/dir/sim_ws/src/talos_sim/talos_leipzig_behaviors/talos_leipzig_flexbe_states/src/talos_leipzig_flexbe_states/semantic_map/leipzig_map.yaml'
 
         # Subscribe to object_task topic
         self.objtask_sub = ProxySubscriberCached({self.objtask_topic: ObjectTask})
@@ -43,9 +41,16 @@ class RefBoxParserState(EventState):
         try:
             with open(self.semantic_map_path, 'r') as stream:
                 semantic_map = yaml.safe_load(stream)
-                self.semantic_map = {k: v for d in semantic_map for k, v in d.items()}  # Convert list of dictionaries to dictionary
+                if isinstance(semantic_map, list):
+                    self.semantic_map = {k: v for d in semantic_map for k, v in d.items()}
+                else:
+                    self.semantic_map = {}
+                    Logger.logwarn("Unexpected semantic map format: {type(semantic_map)}")
         except yaml.YAMLError as exc:
-            Logger.logerror(f"Error loading semantic map: {exc}")
+            Logger.logerror("Error loading semantic map: {exc}")
+            self.semantic_map = {}
+        except Exception as exc:
+            Logger.logerror("Unexpected error loading semantic map: {exc}")
             self.semantic_map = {}
 
     def on_enter(self, userdata):
@@ -91,7 +96,7 @@ class RefBoxParserState(EventState):
         self.objtask_sub.remove_last_msg(self.objtask_topic)
         self.task = task_msg.subtasks
 
-        Logger.loginfo(f'Objects: {len(self.task)}')
+        Logger.loginfo('Objects: {len(self.task)}')
 
         # Populate dictionaries from the topic
         for src in self.task:
@@ -106,5 +111,5 @@ class RefBoxParserState(EventState):
         userdata.sa_poses = self.semantic_map
         userdata.flag_start = True
 
-        Logger.loginfo(f'FINAL TASK: {userdata.task}')
+        Logger.loginfo('FINAL TASK: {userdata.task}')
         return 'continue'

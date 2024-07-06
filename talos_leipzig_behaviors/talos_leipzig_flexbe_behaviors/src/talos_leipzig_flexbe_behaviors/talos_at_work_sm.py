@@ -9,7 +9,7 @@
 
 from flexbe_core import Behavior, Autonomy, OperatableStateMachine, ConcurrencyContainer, PriorityContainer, Logger
 from talos_leipzig_flexbe_states.move_base_state import MoveBaseState
-from talos_leipzig_flexbe_states.refbox_parser import RefBoxParserState
+from talos_leipzig_flexbe_states.refbox_parserv1 import RefBoxParserStateV1
 from talos_leipzig_flexbe_states.refbox_planner import RefBoxPlannerState
 # Additional imports can be added inside the following tags
 # [MANUAL_IMPORT]
@@ -55,9 +55,9 @@ class talos_at_workSM(Behavior):
 
 
 		with _state_machine:
-			# x:115 y:63
-			OperatableStateMachine.add('Refbox_Parser',
-										RefBoxParserState(),
+			# x:101 y:59
+			OperatableStateMachine.add('Refbox_ParserV1',
+										RefBoxParserStateV1(),
 										transitions={'continue': 'Refbox_Planner', 'error_parsing': 'failed'},
 										autonomy={'continue': Autonomy.Off, 'error_parsing': Autonomy.Off},
 										remapping={'task': 'task', 'sa_poses': 'sa_poses', 'flag_start': 'flag_start'})

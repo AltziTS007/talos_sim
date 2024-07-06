@@ -1,0 +1,9 @@
+arena:
+  workstations:
+    WS01: "10"
+    WS02: "10"
+  objects:
+    F20_20_G      : 1
+    M20           : 1
+    M20_100       : 1
+  cavities: [ "F20_20_H", "S40_40_H", "M20_H", "M30_H", "M20_100_H", "R20_H", "F20_20_V", "S40_40_V", "M20_V", "M30_V", "R20_V" ]

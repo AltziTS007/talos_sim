@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<launch>
+  <arg name="refbox" default="atwork_commander"/>
+  <arg name="verbose" default="false"/>
+  <arg name="output" default="screen"/>
+
+  <arg name="file"/>
+    <node name="load_helper" pkg="atwork_commander_core" type="control" args="-v $(arg verbose) load $(arg file)" output="$(arg output)">
+      <param name="refbox" value="$(arg refbox)"/>
+    </node>
+</launch>

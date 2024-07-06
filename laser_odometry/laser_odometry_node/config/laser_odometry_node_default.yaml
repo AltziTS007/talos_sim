@@ -1,0 +1,35 @@
+##########################################################
+## Default parameters of the laser_odometry base class. ##
+##########################################################
+
+laser_frame:      base_link
+base_frame:       base_link
+fixed_frame:      odom
+laser_odom_frame: laser_odom
+global_frame:     map
+
+####################################################
+## Default parameters of the laser_odometry node. ##
+####################################################
+
+# Whether or not to broadcast the estimated odometry on tf.
+broadcast_tf: False
+
+# Whether or not the retrieve the origin pose from tf.
+init_origin:  True
+
+# Whether to use a nav_msgs/Odometry message or a geometry_msgs/Pose2D message.
+publish_odom: True
+
+# Whether or not the sensor is fixed wrt the base_frame.
+fixed_sensor: True
+
+# Throttling messages.
+throttle:     1
+
+# How many tries to retrieve
+# the laser pose on the robot
+tf_try:       5
+
+# The default delta pose covariance diagonal.
+covariance_diag: [1.e-8, 1.e-8, 1.e-8, 1.e-8, 1.e-8, 1.e-8]

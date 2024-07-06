@@ -1,0 +1,2 @@
+- git: {local-name: laser_odometry, uri: 'https://github.com/artivis/laser_odometry', version: master}
+- git: {local-name: rf2o_laser_odometry, uri: 'https://github.com/artivis/rf2o_laser_odometry', version: devel}

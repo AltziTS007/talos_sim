@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>atwork_commander</name>
+  <version>0.0.1</version>
+  <description>The new next-gen refbox of the @Work league</description>
+
+  <maintainer email="robotto@ovgu.de">Team robOTTO</maintainer>
+
+  <license>MIT</license>
+
+  <url type="repository">https://github.com/robocup-at-work/atwork_commander</url>
+
+  <author email="steup@ovgu.de">Christoph Steup</author> -->
+
+<buildtool_depend>catkin</buildtool_depend>
+
+<test_depend>rostest</test_depend>
+<test_depend>atwork_commander_core</test_depend>
+
+<exec_depend>atwork_commander_core</exec_depend>
+<exec_depend>atwork_commander_com</exec_depend>
+<exec_depend>atwork_commander_gui</exec_depend>
+
+</package>

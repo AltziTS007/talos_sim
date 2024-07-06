@@ -38,7 +38,7 @@
       <rosparam file="$(find talos_navigation)/config/teb/teb_local_planner_params.yaml" command="load"/>
 
       <!-- LOAD COSTMAP_CONVERTER PARAMETERS HERE -->
-      <rosparam file="$(find talos_navigation)/config/teb/costmap_converter_params.yaml" command="load" />
+      <!--rosparam file="$(find talos_navigation)/config/teb/costmap_converter_params.yaml" command="load" /-->
 
       <remap from="odom" to="/odometry/filtered"/>
 
