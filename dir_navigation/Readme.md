@@ -8,7 +8,7 @@
   - [2D LiDARs: Sick TIM561](#2d_lidars)
   - [Odometry: Dynamixel Motors](#odometry)
   - [IMU: LSM9DS1](#imu)
-- [Localization and Mapping](#localization)
+- [Localization and Mapping](#localization_and_mapping)
   - [Localization](#localization)
   - [Mapping](#mapping)
 - [Path Planning](#path)
