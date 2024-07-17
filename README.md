@@ -1,7 +1,7 @@
 <img title="D.I.R." alt="Alt text" src="/images/dir_horizontal.png">
 
 ## Introduction
-Welcome to the talos_sim repository! This project provides a simulation environment for the Talos robot, a Mobile Manipulator AMR designed for research and development in robotics, especially for the international RoboCup@Work competition. The repository is tailored for ROS Noetic and includes all the necessary tools to simulate the Talos robot in a virtual environment.
+Welcome to the talos_sim repository! This project provides a simulation environment for the Talos robot, a Mobile Manipulator AMR designed for research and development in robotics, especially for the international RoboCup@Work competition. The repository is tailored for ROS Noetic and includes all the necessary tools to simulate the Talos robot in a virtual environment. Our robot is custom-made primarily because securing sponsorships for our project was challenging, and we aimed to develop a cost-effective yet efficient solution. Moreover, we believe that developing custom-made robots can foster innovative research by allowing teams to explore unique designs and approaches tailored to specific problems.
 
 <img title="D.I.R. TALOS" alt="Alt text" src="/images/talos_INVERTED.png">
 
