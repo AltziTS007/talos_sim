@@ -88,7 +88,16 @@ Now we save the map by hitting ```rosrun map_server map_saver```.
 (Under devel)
 
 ## Available Launch Files
-(Under devel)
+
+- spawning robocup objects ```roslaunch talos_description spawn_sdf.py```
+- laser-odometry ```roslaunch rf2o_laser_odometry rf2o_laser_odometry.launch```
+- line extraction from laserscans ```roslaunch laser_line_extraction example.launch```
+- object recognition with yolov3-darknet ```roslaunch darknet_ros yolo_v3.launch```
+- tape detection ```roslaunch talos_vision tape_cloud_sim.py```
+- pose estimation ```rosrun coordinate_estimation coordinate_estimation```
+- robotic arm manipulation with moveit ```roslaunch widowxl_moveit_config demo.launch```
+- autonomous navigation ```roslaunch talos_navigation move_base_teb.launch```
+- spawning robocup objects ```roslaunch talos_description spawn_sdf.py```
 
 ### 4. Conclusion
 
