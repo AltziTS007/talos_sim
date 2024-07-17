@@ -85,7 +85,8 @@ Now we save the map by hitting ```rosrun map_server map_saver```.
 
 
 ## Controlling the Robot
-(Under devel)
+- Controlling the movement of the robot ```roslaunch talos_description spawn_robocup.launch```
+- Controll the movement of the robotic arm ```roslaunch widowxl_moveit_config demo.launch```
 
 ## Available Launch Files
 
@@ -96,8 +97,8 @@ Now we save the map by hitting ```rosrun map_server map_saver```.
 - tape detection ```roslaunch talos_vision tape_cloud_sim.py```
 - pose estimation ```rosrun coordinate_estimation coordinate_estimation```
 - robotic arm manipulation with moveit ```roslaunch widowxl_moveit_config demo.launch```
+- mapping the area ```roslaunch talos_navigation move_base_teb.launch```
 - autonomous navigation ```roslaunch talos_navigation move_base_teb.launch```
-- spawning robocup objects ```roslaunch talos_description spawn_sdf.py```
 
 ### 4. Conclusion
 
