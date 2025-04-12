@@ -224,21 +224,21 @@ install(DIRECTORY config launch yolo_network_config
 )
 
 # Download yolov2-tiny.weights
-set(PATH "${CMAKE_CURRENT_SOURCE_DIR}/yolo_network_config/weights")
-set(FILE "${PATH}/yolov2-tiny.weights")
-message(STATUS "Checking and downloading yolov2-tiny.weights if needed ...")
-if (NOT EXISTS "${FILE}")
-  message(STATUS "... file does not exist. Downloading now ...")
-  execute_process(COMMAND wget -q https://github.com/leggedrobotics/darknet_ros/releases/download/1.1.4/yolov2-tiny.weights -P ${PATH})
-endif()
+#c set(PATH "${CMAKE_CURRENT_SOURCE_DIR}/yolo_network_config/weights")
+#c set(FILE "${PATH}/yolov2-tiny.weights")
+#c message(STATUS "Checking and downloading yolov2-tiny.weights if needed ...")
+#c if (NOT EXISTS "${FILE}")
+#c   message(STATUS "... file does not exist. Downloading now ...")
+#c   execute_process(COMMAND wget -q https://github.com/leggedrobotics/darknet_ros/releases/download/1.1.4/yolov2-tiny.weights -P ${PATH})
+#c endif()
 
 # Download yolov3.weights
-set(FILE "${PATH}/yolov3.weights")
-message(STATUS "Checking and downloading yolov3.weights if needed ...")
-if (NOT EXISTS "${FILE}")
-  message(STATUS "... file does not exist. Downloading now ...")
-  execute_process(COMMAND wget -q https://github.com/leggedrobotics/darknet_ros/releases/download/1.1.4/yolov3.weights -P ${PATH})
-endif()
+#c set(FILE "${PATH}/yolov3.weights")
+#c message(STATUS "Checking and downloading yolov3.weights if needed ...")
+#c if (NOT EXISTS "${FILE}")
+#c   message(STATUS "... file does not exist. Downloading now ...")
+#c   execute_process(COMMAND wget -q https://github.com/leggedrobotics/darknet_ros/releases/download/1.1.4/yolov3.weights -P ${PATH})
+#c endif()
 
 #############
 ## Testing ##
